@@ -1,0 +1,63 @@
+---
+swagger: "2.0"
+info:
+  title: test
+  version: 1.0.0
+  description: test deskripsi
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  /widgets:
+    get:
+      responses:
+        "200":
+          description: Successful response - returns an array of `Widget` entities.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Widget'
+          examples:
+            application/json:
+            - name: some text
+              description: some text
+            - name: some text
+              description: some text
+      operationId: getWidgets
+      summary: List All Widgets
+      description: Gets a list of all `Widget` entities.
+    post:
+      parameters:
+      - name: body
+        description: A new `Widget` to be created.
+        schema:
+          $ref: '#/definitions/Widget'
+        in: body
+        required: true
+      responses:
+        "201":
+          description: Successful response.
+      operationId: createWidget
+      summary: Create a Widget
+      description: Creates a new instance of a `Widget`.
+definitions:
+  Widget:
+    title: Root Type for Widget
+    description: "A very simple, generic data type."
+    type: object
+    properties:
+      name:
+        description: The name of the widget.
+        type: string
+      description:
+        description: The description of the widget.
+        type: string
+    example: |-
+      {
+          "name": "My Widget",
+          "description": "Just a little widget for your review."
+      }
