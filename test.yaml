@@ -1,0 +1,2271 @@
+---
+openapi: 3.0.2
+info:
+  title: Berta
+  version: dev
+  description: "digunakan untuk tim development     \n\n\nAplikasi BERTA ini digunakan\
+    \ oleh Petugas Cabang dengan menggunakan teknologi Android melalui jaringan intranet\
+    \ BCA.\n\n- eKTP Reader\n- Star Teller\n- Pinpad\n- Passbook\n \n\nCONTACT : \n\
+    - Mieke Puspa <mieke_puspa@bca.co.id>; \n- NATHANAEL ALDO PHILLIP <nathanael_phillip@bca.co.id>\n\
+    - NICO <nico_anwar@bca.co.id>; \n- DAVID CHRISTOPHER SENTOSA <DAVID_SENTOSA@bca.co.id> "
+  contact:
+    name: BERTA Team
+servers:
+- url: http://10.20.215.149:8888/rest/Berta/dev
+  description: ""
+paths:
+  /ektpreader/verifyIsoTemplate:
+    post:
+      tags:
+      - eKTPReader
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    content_type: application/json
+                    data:
+                      matching_score: 70
+                      message: success
+                      nip: ""
+                      wsid: ""
+                    http_status: 200
+                    method: POST
+                    response_data: "{ \"status\": 0, \"data\": { \"message\": \"success\"\
+                      , \"matching_score\": 70, \"nip\": \"\", \"wsid\": \"\" } }"
+                    status: 0
+                    url: /ektpreader/verifyIsoTemplate
+      summary: /verifyIsoTemplate
+  /ektpreader/getVerifyIsoLog:
+    post:
+      tags:
+      - eKTPReader
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    content_type: application/json
+                    http_status: 200
+                    method: POST
+                    response_data: "{\"success\":0}"
+                    status: 0
+                    url: /ektpreader/getVerifyIsoLog
+      summary: /getVerifyIsoLog
+  /ektpreader/verifyFinger:
+    post:
+      tags:
+      - eKTPReader
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    content_type: application/json
+                    fingerTypes: "2L,2R"
+                    http_status: 200
+                    method: POST
+                    response_data: "{  \"success\": 0, \"fingerTypes\": \"2L,2R\"}"
+                    status: 0
+                    url: /ektpreader/verifyFinger
+      summary: /verifyFinger
+  /ektpreader/putEktp:
+    post:
+      tags:
+      - eKTPReader
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    content_type: application/json
+                    http_status: 200
+                    method: POST
+                    response_data: "{ \"success\":0}"
+                    status: 0
+                    url: /ektpreader/putEktp
+      summary: /putEktp
+  /starteller/TCRClose:
+    post:
+      tags:
+      - StarTeller
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: Success
+      summary: TCRClose
+  /starteller/TCRCashIn:
+    post:
+      tags:
+      - StarTeller
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: Success
+                    OutputSchema:
+                      TCR_NOTES:
+                      - Amount: 50000
+                        Count: 1
+                        Currency: IDR
+                        Denom: 6
+                      - Amount: 50000
+                        Count: 1
+                        Currency: IDR
+                        Denom: 7
+                      TrxID: 121
+      summary: TCRCashIn
+  /starteller/TCRCashInEnd:
+    post:
+      tags:
+      - StarTeller
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: Success
+      summary: TCRCashInEnd
+  /starteller/TCRCashInRollback:
+    post:
+      tags:
+      - StarTeller
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: Success
+      summary: TCRCashInRollback
+  /starteller/TCRPoll:
+    post:
+      tags:
+      - StarTeller
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: Success
+                    OutputSchema:
+                      TCR_ACTIVITY: 10
+      summary: TCRPoll
+  /starteller/TCRReset:
+    post:
+      tags:
+      - StarTeller
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: Success
+      summary: TCRReset
+  /starteller/TCRMachineRegistration:
+    post:
+      tags:
+      - StarTeller
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: Success
+      summary: TCRMachineRegistration
+  /starteller/SetCashbox:
+    post:
+      tags:
+      - StarTeller
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: Success
+                    OutputSchema:
+                      CashboxID: 1
+      summary: SetCashbox
+  /starteller/DeleteCashbox:
+    post:
+      tags:
+      - StarTeller
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: Success
+      summary: DeleteCashbox
+  /starteller/SetMachineMode:
+    post:
+      tags:
+      - StarTeller
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: Success
+      summary: SetMachineMode
+  /starteller/SetAdjustment:
+    post:
+      tags:
+      - StarTeller
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: Success
+      summary: SetAdjustment
+  /starteller/GetAdjustmentList:
+    post:
+      tags:
+      - StarTeller
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: Success
+                    OutputSchema:
+                      Count: 2
+                      TCR_NOTES:
+                      - Denom: 2
+                        SerialNumber: GFK917576
+                        Size: 19976
+                        Index: 0
+                      - Denom: 2
+                        SerialNumber: GFK917576
+                        Size: 19976
+                        Index: 0
+      summary: GetAdjustmentList
+  /starteller/SendDispense:
+    post:
+      tags:
+      - StarTeller
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: Success
+                    OutputSchema:
+                      TrxID: 121
+      summary: SendDispense
+  /starteller/GetDispenseAvailable:
+    post:
+      tags:
+      - StarTeller
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: Success
+                    OutputSchema:
+                      Denom1: 10000000
+                      Denom2: 10000000
+                      Denom3: 10000000
+                      Denom4: 10000000
+                      Denom5: 10000000
+                      Denom6: 10000000
+                      Denom7: 10000000
+      summary: GetDispenseAvailable
+  /starteller/GetExchangeReport:
+    post:
+      tags:
+      - StarTeller
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: Success
+                    OutputSchema:
+                      Denom7: 0
+                      Denom3: 0
+                      Denom4: 0
+                      Denom5: 0
+                      Denom6: 0
+                      Denom1: 0
+                      Denom2: 0
+                      Balance: 0
+      summary: GetExchangeReport
+  /starteller/GetMachineDetails:
+    description: ""
+    post:
+      tags:
+      - StarTeller
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: Success
+                    OutputSchema:
+                      CashUnitInfo:
+                        CUID6: 2
+                        CUID5: 2
+                        CUID2: 1
+                        CUID1: 1
+                        CUID4: 2
+                        CUID3: 1
+                      CashUnitCount: 6
+                      DenomInfo:
+                        Denom2: 10000000
+                        Denom1: 10000000
+                        Denom7: 10000000
+                        Denom6: 10000000
+                        Denom5: 10000000
+                        Denom4: 10000000
+                        Denom3: 10000000
+                      DenomCount: 7
+      summary: GetMachineDetails
+      description: ""
+  /starteller/UpdateTransaction:
+    description: ""
+    post:
+      tags:
+      - StarTeller
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: Success
+      summary: UpdateTransaction
+      description: ""
+  /pinpad/getPin:
+    post:
+      tags:
+      - pinpad
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    bytes: "3131313131"
+      summary: /getPin
+  /pinpad/displayIdleWording:
+    post:
+      tags:
+      - pinpad
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    bytes: "3131313131"
+      summary: /displayIdleWording
+  /passBookPrinter/connect:
+    post:
+      tags:
+      - passbook
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    status: 0
+      summary: /connect
+  /dummy/mwas/getTransferList/rest/authenticated-services:
+    post:
+      tags:
+      - mwas
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseMwas'
+              examples:
+                success:
+                  value:
+                    error_schema:
+                      error_code: MWAS-00-000
+                      error_message:
+                        indonesian: OK
+                        english: OK
+                    output_schema:
+                      account_list:
+                      - account_number: "02170003279"
+                        account_name: ARUM KURNIA
+                        account_type: "300"
+                        account_type_description: Giro
+                        customer_details:
+                        - customer_number: "00000004773"
+                          customer_name: ANTHONY
+                          relation_type: "0"
+                          owner_code: "901"
+                      - account_number: "00210022856"
+                        account_name: REKENING 4
+                        account_type: "111"
+                        account_type_description: Tapres
+                        customer_details:
+                        - customer_number: "00000007435"
+                          customer_name: REKENING 4
+                          relation_type: "0"
+                          owner_code: "901"
+      summary: /getTransferList
+      description: ""
+  /dummy/getAccountListByNik/rest/authenticated-services:
+    post:
+      tags:
+      - mwas
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseMwas'
+              examples:
+                success:
+                  value:
+                    error_schema:
+                      error_code: MWAS-00-000
+                      error_message:
+                        indonesian: OK
+                        english: OK
+                    output_schema:
+                      account_list:
+                      - account_number: "00210022856"
+                        account_name: REKENING 4
+                        account_type: "111"
+                        account_type_description: Tapres
+                        customer_details:
+                        - customer_number: "00000007435"
+                          customer_name: REKENING 4
+                          relation_type: "0"
+                          owner_code: "901"
+      summary: /getAccountListByNik
+  /dummy/lookupWICIDS/rest/authenticated-services:
+    post:
+      tags:
+      - mwas
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseMwas'
+              examples:
+                DATA FOUND:
+                  value:
+                    error_schema:
+                      error_code: MWAS-00-000
+                      error_message:
+                        indonesian: OK
+                        english: OK
+                    output_schema:
+                      dawicu04OperationResponse:
+                        OUTDAWICU04:
+                          output_message:
+                            output_schema:
+                              income: "002"
+                              country: ID
+                              occupation: "003"
+                              gender: ""
+                              date_of_birth: "19450131"
+                              handphone_number: "081123456789012"
+                              delete_ts: ""
+                              organization_code: "000"
+                              transaction_purpose: ""
+                              wic_type: I
+                              province: JAKARTA
+                              id_type: "1"
+                              source_of_funds: ""
+                              rt_rw: 001/002
+                              id_number: "1234512346"
+                              sub_district: GAMBIR
+                              address3: ""
+                              update_ts: 2022-02-15-13.09.02.114088
+                              address2: JLANA 2
+                              address1: JALAN1
+                              citizenship: "1"
+                              npwp: "123456789012345"
+                              add_ts: 2022-02-11-11.48.28.236702
+                              organization_area: ""
+                              place_of_birth: JAKARTA
+                              marital_status: ""
+                              city_regency: JAKARTA
+                              user_id: 0054010T
+                              organization: ""
+                              name: HWP6
+                              urban_village: GAMBIR TIMUR
+                              phone_number: "024123456789012"
+                              postal_code: "12345"
+                            error_schema:
+                              error_message:
+                                indonesian: TRANSACTION SUCCESSFUL
+                                english: TRANSACTION SUCCESSFUL
+                              error_code: MC
+                DATA NOT FOUND:
+                  value:
+                    error_schema:
+                      error_code: MWAS-00-000
+                      error_message:
+                        indonesian: OK
+                        english: OK
+                    output_schema:
+                      dawicu04OperationResponse:
+                        OUTDAWICU04:
+                          output_message:
+                            output_schema:
+                              income: ""
+                              country: ""
+                              occupation: ""
+                              gender: ""
+                              date_of_birth: ""
+                              handphone_number: ""
+                              delete_ts: ""
+                              organization_code: ""
+                              transaction_purpose: ""
+                              wic_type: ""
+                              province: ""
+                              id_type: ""
+                              source_of_funds: ""
+                              rt_rw: ""
+                              id_number: ""
+                              sub_district: ""
+                              address3: ""
+                              update_ts: ""
+                              address2: ""
+                              address1: ""
+                              citizenship: ""
+                              npwp: ""
+                              add_ts: ""
+                              organization_area: ""
+                              place_of_birth: ""
+                              marital_status: ""
+                              city_regency: ""
+                              user_id: ""
+                              organization: ""
+                              name: ""
+                              urban_village: ""
+                              phone_number: ""
+                              postal_code: ""
+                            error_schema:
+                              error_message:
+                                indonesian: DATA NOT FOUND
+                                english: DATA NOT FOUND
+                              error_code: MTV
+      summary: /lookupWICIDS
+  /dummy/updateDBWICIDS/rest/authenticated-services:
+    post:
+      tags:
+      - mwas
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseMwas'
+              examples:
+                success:
+                  value:
+                    error_schema:
+                      error_code: MWAS-00-000
+                      error_message:
+                        indonesian: OK
+                        english: OK
+                    output_schema:
+                      dawicu04OperationResponse:
+                        OUTDAWICU04:
+                          output_message:
+                            output_schema:
+                              income: "002"
+                              country: ID
+                              occupation: "003"
+                              gender: "1"
+                              date_of_birth: "19450131"
+                              handphone_number: "081123456789012"
+                              delete_ts: ""
+                              organization_code: "000"
+                              transaction_purpose: "01"
+                              wic_type: I
+                              province: Jakarta
+                              id_type: "1"
+                              source_of_funds: "01"
+                              rt_rw: 001/002
+                              id_number: "1234512345"
+                              sub_district: Gambir
+                              address3: ""
+                              update_ts: ""
+                              address2: ""
+                              address1: JALAN1
+                              citizenship: "1"
+                              npwp: "123456789012345"
+                              add_ts: ""
+                              organization_area: ""
+                              place_of_birth: Jakarta
+                              marital_status: "1"
+                              city_regency: Jakarta
+                              user_id: B008123T
+                              organization: ""
+                              name: HWP
+                              urban_village: Gambir Timur
+                              phone_number: "024123456789012"
+                              postal_code: "12345"
+                            error_schema:
+                              error_message:
+                                indonesian: TRANSACTION SUCCESSFUL
+                                english: TRANSACTION SUCCESSFUL
+                              error_code: MC
+      summary: /updateDBWICIDS
+  /dummy/createWICIDS/rest/authenticated-services:
+    post:
+      tags:
+      - mwas
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseMwas'
+              examples:
+                success:
+                  value:
+                    error_schema:
+                      error_code: MWAS-00-000
+                      error_message:
+                        indonesian: OK
+                        english: OK
+                    output_schema:
+                      dawicu04OperationResponse:
+                        OUTDAWICU04:
+                          output_message:
+                            output_schema:
+                              income: "002"
+                              country: ID
+                              occupation: "003"
+                              gender: "1"
+                              date_of_birth: "19450131"
+                              handphone_number: "081123456789012"
+                              delete_ts: ""
+                              organization_code: "000"
+                              transaction_purpose: "01"
+                              wic_type: I
+                              province: Jakarta
+                              id_type: "1"
+                              source_of_funds: "01"
+                              rt_rw: 001/002
+                              id_number: "1234512346"
+                              sub_district: Gambir
+                              address3: yayaya jalan sedsama
+                              update_ts: ""
+                              address2: jlana 2
+                              address1: JALAN1
+                              citizenship: "1"
+                              npwp: "123456789012345"
+                              add_ts: ""
+                              organization_area: ""
+                              place_of_birth: Jakarta
+                              marital_status: "1"
+                              city_regency: Jakarta
+                              user_id: B008123T
+                              organization: ""
+                              name: HWP
+                              urban_village: Gambir Timur
+                              phone_number: "024123456789012"
+                              postal_code: "12345"
+                            error_schema:
+                              error_message:
+                                indonesian: TRANSACTION SUCCESSFUL
+                                english: TRANSACTION SUCCESSFUL
+                              error_code: MC
+      summary: /createWICIDS
+  /dummy/oaapi/customers/api/individu/status/rest/authenticated-services:
+    post:
+      tags:
+      - mwas
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseMwas'
+              examples:
+                success:
+                  value:
+                    error_schema:
+                      error_code: MWAS-00-000
+                      error_message:
+                        indonesian: OK
+                        english: OK
+                    output_schema:
+                      error_schema:
+                        error_code: OAAPI-00-000
+                        error_message:
+                          english: Transaction Success
+                          indonesian: Transaksi Berhasil
+                      output_schema:
+                        customer_pep_status: "Y"
+                        customer_dttot_status: "N"
+                        customer_nrt_status: TP
+                        customer_job_risk: "N"
+                        customer_code: "019"
+                        customer_dik_status: "Y"
+                        customer_country_risk: "N"
+      summary: /oaapi/customers/api/individu/status
+  /dummy/getEformInquiryDropList/{code_category}/rest/authenticated-services:
+    post:
+      tags:
+      - mwas
+      parameters:
+      - examples:
+          C010:
+            value: C010
+          C030:
+            value: C030
+          C029:
+            value: C029
+        name: code_category
+        schema:
+          type: string
+        in: path
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseMwas'
+              examples:
+                C010:
+                  value:
+                    error_schema:
+                      error_code: MWAS-00-000
+                      error_message:
+                        indonesian: OK
+                        english: OK
+                    output_schema:
+                      error_schema:
+                        error_code: D000
+                        error_message:
+                          indonesian: Berhasil
+                          english: Success
+                      output_schema:
+                      - error_message: SUCCESS
+                        category_cd: C010
+                        category_in: Total penghasilan per Tahun
+                        category_en: Yearly Income (Before Tax)
+                        content_order: "5"
+                        content_in: 0-50 juta
+                        content_en: 0-50 million
+                        next_category_cd: "-"
+                        strt_eff_dt: 2020-06-23 10:20:12
+                        last_update_dt: 2020-06-23 10:20:12
+                      - error_message: SUCCESS
+                        category_cd: C010
+                        category_in: Total penghasilan per Tahun
+                        category_en: Yearly Income (Before Tax)
+                        content_order: "6"
+                        content_in: '>50 - 250 juta'
+                        content_en: '>50-250 million'
+                        next_category_cd: "-"
+                        strt_eff_dt: 2020-06-23 10:20:12
+                        last_update_dt: 2020-06-23 10:20:12
+                      - error_message: SUCCESS
+                        category_cd: C010
+                        category_in: Total penghasilan per Tahun
+                        category_en: Yearly Income (Before Tax)
+                        content_order: "7"
+                        content_in: '>250 - 500 juta'
+                        content_en: '>250-500 million'
+                        next_category_cd: "-"
+                        strt_eff_dt: 2020-06-23 10:20:12
+                        last_update_dt: 2020-06-23 10:20:12
+                      - error_message: SUCCESS
+                        category_cd: C010
+                        category_in: Total penghasilan per Tahun
+                        category_en: Yearly Income (Before Tax)
+                        content_order: "8"
+                        content_in: ">500 juta - 1,5 M"
+                        content_en: ">500 million -1,5 billion"
+                        next_category_cd: "-"
+                        strt_eff_dt: 2020-06-23 10:20:12
+                        last_update_dt: 2020-06-23 10:20:12
+                      - error_message: SUCCESS
+                        category_cd: C010
+                        category_in: Total penghasilan per Tahun
+                        category_en: Yearly Income (Before Tax)
+                        content_order: "9"
+                        content_in: "> 1,5 M"
+                        content_en: "> 1,5 billion"
+                        next_category_cd: "-"
+                        strt_eff_dt: 2020-06-23 10:20:12
+                        last_update_dt: 2020-06-23 10:20:12
+                C030:
+                  value:
+                    error_schema:
+                      error_code: MWAS-00-000
+                      error_message:
+                        indonesian: OK
+                        english: OK
+                    output_schema:
+                      error_schema:
+                        error_code: D000
+                        error_message:
+                          indonesian: Berhasil
+                          english: Success
+                      output_schema:
+                      - error_message: SUCCESS
+                        category_cd: C030
+                        category_in: Sumber Dana
+                        category_en: Source of Fund
+                        content_order: "1"
+                        content_in: Gaji
+                        content_en: Salary
+                        next_category_cd: "-"
+                        strt_eff_dt: 2022-01-28 17:15:32
+                        last_update_dt: 2022-01-28 17:15:32
+                      - error_message: SUCCESS
+                        category_cd: C030
+                        category_in: Sumber Dana
+                        category_en: Source of Fund
+                        content_order: "2"
+                        content_in: Hibah
+                        content_en: Conferment
+                        next_category_cd: "-"
+                        strt_eff_dt: 2022-01-28 17:15:32
+                        last_update_dt: 2022-01-28 17:15:32
+                      - error_message: SUCCESS
+                        category_cd: C030
+                        category_in: Sumber Dana
+                        category_en: Source of Fund
+                        content_order: "3"
+                        content_in: Warisan
+                        content_en: Legacy
+                        next_category_cd: "-"
+                        strt_eff_dt: 2022-01-28 17:15:32
+                        last_update_dt: 2022-01-28 17:15:32
+                      - error_message: SUCCESS
+                        category_cd: C030
+                        category_in: Sumber Dana
+                        category_en: Source of Fund
+                        content_order: "4"
+                        content_in: Hasil Usaha
+                        content_en: Business
+                        next_category_cd: "-"
+                        strt_eff_dt: 2022-01-28 17:15:32
+                        last_update_dt: 2022-01-28 17:15:32
+                      - error_message: SUCCESS
+                        category_cd: C030
+                        category_in: Sumber Dana
+                        category_en: Source of Fund
+                        content_order: "5"
+                        content_in: Dana Pensiun
+                        content_en: Pension Fund
+                        next_category_cd: "-"
+                        strt_eff_dt: 2022-01-28 17:15:32
+                        last_update_dt: 2022-01-28 17:15:32
+                      - error_message: SUCCESS
+                        category_cd: C030
+                        category_in: Sumber Dana
+                        category_en: Source of Fund
+                        content_order: "6"
+                        content_in: Pinjaman
+                        content_en: Loan
+                        next_category_cd: "-"
+                        strt_eff_dt: 2022-01-28 17:15:32
+                        last_update_dt: 2022-01-28 17:15:32
+                      - error_message: SUCCESS
+                        category_cd: C030
+                        category_in: Sumber Dana
+                        category_en: Source of Fund
+                        content_order: "7"
+                        content_in: Hasil Investasi
+                        content_en: Investment
+                        next_category_cd: "-"
+                        strt_eff_dt: 2022-01-28 17:15:32
+                        last_update_dt: 2022-01-28 17:15:32
+                      - error_message: SUCCESS
+                        category_cd: C030
+                        category_in: Sumber Dana
+                        category_en: Source of Fund
+                        content_order: "8"
+                        content_in: Orang Tua
+                        content_en: Parents
+                        next_category_cd: "-"
+                        strt_eff_dt: 2022-01-28 17:15:32
+                        last_update_dt: 2022-01-28 17:15:32
+                      - error_message: SUCCESS
+                        category_cd: C030
+                        category_in: Sumber Dana
+                        category_en: Source of Fund
+                        content_order: "9"
+                        content_in: Penjualan Aset
+                        content_en: Disposition Proceeds
+                        next_category_cd: "-"
+                        strt_eff_dt: 2022-01-28 17:15:32
+                        last_update_dt: 2022-01-28 17:15:32
+                      - error_message: SUCCESS
+                        category_cd: C030
+                        category_in: Sumber Dana
+                        category_en: Source of Fund
+                        content_order: "10"
+                        content_in: Pribadi
+                        content_en: Personal
+                        next_category_cd: "-"
+                        strt_eff_dt: 2022-01-28 17:15:32
+                        last_update_dt: 2022-01-28 17:15:32
+                C029:
+                  value:
+                    error_schema:
+                      error_code: MWAS-00-000
+                      error_message:
+                        indonesian: OK
+                        english: OK
+                    output_schema:
+                      error_schema:
+                        error_code: D000
+                        error_message:
+                          indonesian: Berhasil
+                          english: Success
+                      output_schema:
+                      - error_message: SUCCESS
+                        category_cd: C029
+                        category_in: Tujuan Transaksi (Kliring)
+                        category_en: Purpose of Transaction
+                        content_order: "1"
+                        content_in: Tabungan atau penempatan dana
+                        content_en: Savings
+                        next_category_cd: "-"
+                        strt_eff_dt: 2021-09-23 17:21:55
+                        last_update_dt: 2021-09-23 17:21:55
+                      - error_message: SUCCESS
+                        category_cd: C029
+                        category_in: Tujuan Transaksi (Kliring)
+                        category_en: Purpose of Transaction
+                        content_order: "2"
+                        content_in: Transaksi Usaha atau Bisnis
+                        content_en: Business Transaction
+                        next_category_cd: "-"
+                        strt_eff_dt: 2021-09-23 17:21:55
+                        last_update_dt: 2021-09-23 17:21:55
+                      - error_message: SUCCESS
+                        category_cd: C029
+                        category_in: Tujuan Transaksi (Kliring)
+                        category_en: Purpose of Transaction
+                        content_order: "3"
+                        content_in: Investasi
+                        content_en: Investation
+                        next_category_cd: "-"
+                        strt_eff_dt: 2021-09-23 17:21:55
+                        last_update_dt: 2021-09-23 17:21:55
+                      - error_message: SUCCESS
+                        category_cd: C029
+                        category_in: Tujuan Transaksi (Kliring)
+                        category_en: Purpose of Transaction
+                        content_order: "4"
+                        content_in: Pembelian Barang atau Jasa
+                        content_en: Puchase of Goods or Services
+                        next_category_cd: "-"
+                        strt_eff_dt: 2021-09-23 17:21:55
+                        last_update_dt: 2021-09-23 17:21:55
+                      - error_message: SUCCESS
+                        category_cd: C029
+                        category_in: Tujuan Transaksi (Kliring)
+                        category_en: Purpose of Transaction
+                        content_order: "5"
+                        content_in: Sumbangan atau donasi
+                        content_en: Charity or Donation
+                        next_category_cd: "-"
+                        strt_eff_dt: 2021-09-23 17:21:55
+                        last_update_dt: 2021-09-23 17:21:55
+                      - error_message: SUCCESS
+                        category_cd: C029
+                        category_in: Tujuan Transaksi (Kliring)
+                        category_en: Purpose of Transaction
+                        content_order: "6"
+                        content_in: Pembayaran Tagihan
+                        content_en: Billing Payments
+                        next_category_cd: "-"
+                        strt_eff_dt: 2021-09-23 17:21:55
+                        last_update_dt: 2021-09-23 17:21:55
+                      - error_message: SUCCESS
+                        category_cd: C029
+                        category_in: Tujuan Transaksi (Kliring)
+                        category_en: Purpose of Transaction
+                        content_order: "7"
+                        content_in: Pembayaran Pinjaman
+                        content_en: Loan Payments
+                        next_category_cd: "-"
+                        strt_eff_dt: 2021-09-23 17:21:55
+                        last_update_dt: 2021-09-23 17:21:55
+                      - error_message: SUCCESS
+                        category_cd: C029
+                        category_in: Tujuan Transaksi (Kliring)
+                        category_en: Purpose of Transaction
+                        content_order: "8"
+                        content_in: Transaksi Kebutuhan Pribadi
+                        content_en: Personal Transaction
+                        next_category_cd: "-"
+                        strt_eff_dt: 2021-09-23 17:21:55
+                        last_update_dt: 2021-09-23 17:21:55
+                      - error_message: SUCCESS
+                        category_cd: C029
+                        category_in: Tujuan Transaksi (Kliring)
+                        category_en: Purpose of Transaction
+                        content_order: "9"
+                        content_in: Pembayaran Gaji
+                        content_en: Salary Payments
+                        next_category_cd: "-"
+                        strt_eff_dt: 2021-09-23 17:21:55
+                        last_update_dt: 2021-09-23 17:21:55
+                      - error_message: SUCCESS
+                        category_cd: C029
+                        category_in: Tujuan Transaksi (Kliring)
+                        category_en: Purpose of Transaction
+                        content_order: "10"
+                        content_in: Penjualan Aset
+                        content_en: Disposition Proceeds
+                        next_category_cd: "-"
+                        strt_eff_dt: 2022-01-06 16:04:41
+                        last_update_dt: 2022-01-06 16:04:41
+                      - error_message: SUCCESS
+                        category_cd: C029
+                        category_in: Tujuan Transaksi (Kliring)
+                        category_en: Purpose of Transaction
+                        content_order: "11"
+                        content_in: Setoran Modal
+                        content_en: Paid-up Capital
+                        next_category_cd: "-"
+                        strt_eff_dt: 2022-01-06 16:04:41
+                        last_update_dt: 2022-01-06 16:04:41
+      summary: /getEformInquiryDropList
+  /dummy/v1/user-activities/{refNo}/rest/app:
+    post:
+      tags:
+      - mwas
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                success:
+                  value:
+                    error_schema:
+                      error_code: FB-00-000
+                      error_message:
+                        indonesian: Sukses
+                        english: Success
+                    output_schema:
+                      success: true
+                      data:
+                        log:
+                          ref_no: "007301682505120425649273"
+                          activity_type: Tarikan
+                          activity_id: WC-0168752B-20220525-00000015
+                          branch_code: "0168"
+                          user_id: U649273
+                          user_name: AHMAD NUR KHADAFI
+                          supervisor_id: U058920
+                          supervisor_name: FEBRIYANTO
+                          curr_id: 1
+                          currency_code: IDR
+                          nominal: 89535000
+                          status: 1
+                          created_time: 2022-05-25T12:04:25.143+0700
+                          wsid: 0168752B
+                        detail:
+                          account_type: "110"
+                          customer_name: CATHERINE FRANCIEN SUTANDI
+                          machine_number: "2"
+                          ref_no: "513752102505120425649273"
+                          withdraw_amount_star: "100000"
+                          withdraw_amount_teller: "89435000"
+                          items:
+                          - CASH_MOVEMENT_ID: WC-0168752B-20220525-00000015
+                            TO_USER: "-"
+                            FROM_USER: "5210347285"
+                            STATUS: 3
+                            EFORM_REF_NO: B198794618
+                            STAR_TELLER_REF_NO: "2686"
+                            OVERRIDE_INFOS:
+                            - OVERRIDE_USER_ID: U058920
+                              OVERRIDE_REASON: Limit
+                              OVERRIDE_TIME: 2022-05-25T05:04:00.000+00:00
+                            IS_PRINTED: 0
+                          withdraw_from_star: "100000.00"
+                          withdraw_from_teller: "89435000.00"
+                          override_info:
+                          - user_id: U058920
+                            override_time_millis: 1653480000
+                            reason: Limit
+      summary: /v1/user-activities
+    parameters:
+    - examples:
+        success:
+          value: "007301682505120425649273"
+      name: refNo
+      in: path
+      required: true
+  /dummy/getDeviceDetail/rest/services:
+    post:
+      tags:
+      - mwas
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseMwas'
+              examples:
+                success:
+                  value:
+                    error_schema:
+                      error_code: MWAS-00-000
+                      error_message:
+                        indonesian: OK
+                        english: OK
+                    output_schema:
+                      serial_number: EMULATOR11X0X6X0
+                      wsid: 0258115B
+                      branch_code: "0258"
+                      branch_type_id: KCU
+                      branch_initial: DPG
+                      branch_name: DIPONEGORO
+                      branch_type_name: Kantor Cabang Utama
+                      update_date: 2022-03-11 17:21:30.648407
+                      update_by: futurebranch
+                      is_master: "0"
+                      is_my_bca: "0"
+                      ip_printer: 127.0.0.1
+                      service_hour:
+                        service_hour1: 17:59
+                        service_hour2: 16:59
+                        service_hour3: 08:59
+                        menu_enabled1: "CETAK BUKU TABUNGAN, GANTI BUKU TABUNGAN,\
+                          \ MBCA, KBI, PEMBUKAAN REKENING, APLIKASI KEYBCA"
+                        menu_enabled2: "CETAK BUKU TABUNGAN, GANTI BUKU TABUNGAN,\
+                          \ MBCA"
+                        menu_enabled3: "CETAK BUKU TABUNGAN, MBCA"
+      summary: /getDeviceDetail
+  /dummy/v1/star-machines/rest/app:
+    post:
+      tags:
+      - mwas
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseMwas'
+              examples:
+                success:
+                  value:
+                    error_schema:
+                      error_code: MWAS-00-000
+                      error_message:
+                        indonesian: OK
+                        english: OK
+                    output_schema:
+                      success: true
+                      data:
+                        wsid: 0258132B
+                        type_name: Glory
+                        created_by: U000008
+                        ip_address: 10.10.10.10
+                        host_name: lalalyeyeye
+                        catridge_limit: 0
+                        last_known_operator_id: U000007
+                        branch_code: "0258"
+                        machine_number: 8
+                        version: 183
+      summary: /v1/star-machines
+  /dummy/v1/star-machines/status/rest/app:
+    post:
+      tags:
+      - mwas
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseMwas'
+              examples:
+                success:
+                  value:
+                    error_schema:
+                      error_code: MWAS-00-000
+                      error_message:
+                        indonesian: OK
+                        english: OK
+                    output_schema:
+                      success: true
+      summary: /v1/star-machines/status
+  /starteller/TCRActivate:
+    post:
+      tags:
+      - StarTeller
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success-1:
+                  value:
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: aktivasi berhasil
+                    OutputSchema:
+                      LastTransaction:
+                        LastSequence: 5
+                        RemainAmount: 35000
+                        TCR_NOTES:
+                        - Amount: 90000
+                          Count: 18
+                          Currency: IDR
+                          Denom: 3
+                        - Amount: 10000
+                          Count: 1
+                          Currency: IDR
+                          Denom: 4
+                        - Amount: 20000
+                          Count: 1
+                          Currency: IDR
+                          Denom: 5
+                        TotalAmount: 35000
+                        TransactionStatus: 3
+                        TrxID: 300
+                      TCR_STATUS: 1
+                success-2:
+                  value:
+                    OutputSchema:
+                      LastTransaction:
+                        TrxID: 300
+                        LastSequence: 5
+                        RemainAmount: 35000
+                        TransactionStatus: 3
+                        TotalAmount: 35000
+                        TCR_NOTES:
+                        - Denom: 3
+                          Currency: IDR
+                          Amount: 90000
+                          Count: 18
+                        - Denom: 4
+                          Currency: IDR
+                          Amount: 10000
+                          Count: 1
+                        - Denom: 5
+                          Currency: IDR
+                          Amount: 20000
+                          Count: 1
+                      TCR_STATUS: 1
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: aktivasi berhasil
+                failed:
+                  value:
+                    ErrorSchema:
+                      ErrorCode: -1
+                      ErrorMessage: Failed
+                    OutputSchema: {}
+      summary: TCRActivate
+      x-microcks-operation:
+        delay: 0
+        dispatcher: SCRIPT
+        dispatcherRules: "return \"success-1\"      \n"
+  /starteller/ExecCashOut:
+    post:
+      tags:
+      - StarTeller
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                DENOM_LEFT:
+                  value:
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: Success
+                    OutputSchema:
+                      DispensedDenom:
+                        Denom2: 150000
+                      DispensedDenomLeft:
+                        Denom6: 50000
+                        Denom7: 100000
+                SUCCESS_TARIK_20000:
+                  value:
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: Success
+                    OutputSchema:
+                      DispensedDenom:
+                        Denom7: 20000
+                      DispensedDenomLeft:
+                        Denom6: 0
+                        Denom7: 0
+                success:
+                  value:
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: Success
+                    OutputSchema:
+                      DispensedDenom:
+                        Denom7: 150000
+                      DispensedDenomLeft:
+                        Denom6: 0
+                        Denom7: 0
+                jammed:
+                  value:
+                    ErrorSchema:
+                      ErrorCode: 102
+                      ErrorMessage: Failed
+      summary: ExecCashOut
+      description: Dipakai untuk simulasi tarikan.<br/>DispensedDenom = jumlah yang
+        sudah ditarik <br/>DispensedDenomLeft = jumlah yang blm ditarik dan akan ditarik
+        ketika pemanggilan selanjutnya
+      x-microcks-operation:
+        delay: 100
+        dispatcher: SCRIPT
+        dispatcherRules: "return \"success\"      \n"
+  /pinpad/poll:
+    post:
+      tags:
+      - pinpad
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                atm-5260516002178498:
+                  value:
+                    bytes: 303030412300353236303531363030323137383439385e4e5552484159415449202020202020202020202020202020202f5e32323035323230333234303632303239373030304635323630353136303032313738343938443232303532323033323430363230323937303030466e
+                atm-6019007500115564:
+                  value:
+                    bytes: 303030412300363031393030373530303131353536345e4e5552484159415449202020202020202020202020202020202f5e32323035323230333234303632303239373030304635323630353136303032313738343938443232303532323033323430363230323937303030466e
+      summary: /poll
+      x-microcks-operation:
+        delay: 0
+        dispatcher: SCRIPT
+        dispatcherRules: "return \"atm-6019007500115564\" \n"
+  /pinpad/info:
+    post:
+      tags:
+      - pinpad
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                atm-5260516002178498:
+                  value:
+                    bytes: 303030412300353236303531363030323137383439385e4e5552484159415449202020202020202020202020202020202f5e32323035323230333234303632303239373030304635323630353136303032313738343938443232303532323033323430363230323937303030466e
+                atm-6019007500115564:
+                  value:
+                    bytes: 303030412300363031393030373530303131353536345e4e5552484159415449202020202020202020202020202020202f5e32323035323230333234303632303239373030304635323630353136303032313738343938443232303532323033323430363230323937303030466e
+      summary: /info
+      x-microcks-operation:
+        delay: 0
+        dispatcher: SCRIPT
+        dispatcherRules: "return \"atm-6019007500115564\" \n"
+  /pinpad/connect:
+    post:
+      tags:
+      - pinpad
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                atm-5260516002178498:
+                  value:
+                    bytes: 303030412300353236303531363030323137383439385e4e5552484159415449202020202020202020202020202020202f5e32323035323230333234303632303239373030304635323630353136303032313738343938443232303532323033323430363230323937303030466e
+                atm-6019007500115564:
+                  value:
+                    bytes: 303030412300363031393030373530303131353536345e4e5552484159415449202020202020202020202020202020202f5e32323035323230333234303632303239373030304636303139303037353030313135353634443232303532323033323430363230323937303030466e
+      summary: /connect
+      x-microcks-operation:
+        delay: 0
+        dispatcher: SCRIPT
+        dispatcherRules: "return \"atm-6019007500115564\" \n"
+  /pinpad/readMagStripe:
+    post:
+      tags:
+      - pinpad
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                atm-5260516002178498:
+                  value:
+                    bytes: 303030412300353236303531363030323137383439385e4e5552484159415449202020202020202020202020202020202f5e32323035323230333234303632303239373030304635323630353136303032313738343938443232303532323033323430363230323937303030466e
+                atm-6019007500115564:
+                  value:
+                    bytes: 303030412300363031393030373530303131353536345e4e5552484159415449202020202020202020202020202020202f5e32323035323230333234303632303239373030304636303139303037353030313135353634443232303532323033323430363230323937303030466e
+      summary: /readMagStripe
+      x-microcks-operation:
+        delay: 0
+        dispatcher: SCRIPT
+        dispatcherRules: "return \"atm-5260516002178498\" \n"
+  /starteller/TCROpen:
+    post:
+      tags:
+      - StarTeller
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: Success
+                    OutputSchema:
+                      TCR_HANDLE: 123456789
+      summary: TCROpen
+      x-microcks-operation:
+        delay: 0
+        dispatcher: SCRIPT
+        dispatcherRules: "return \"success\" \n"
+  /starteller/GetMachineTxn:
+    description: ""
+    post:
+      tags:
+      - StarTeller
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: Success
+                    OutputSchema:
+                      Transactions: "0"
+                all success:
+                  value:
+                    OutputSchema:
+                      Transactions: '114:49:21002014216       99000000              0U000007                          14:51:35002014326        4000000              0U000007                          16:10:42002014426       12000000              0U000007                          16:22:28002014526       12000000              0U000007                          16:29:07002014626       10000000              0U000007                          10:17:49002017626        5000000              0U000007                          10:20:14002017716        4000000              0U000007                          10:23:24002017826       99000000              0U000007                          10:27:02002017916      100000000              0U000007                          10:32:07002018026       50000000              0U000007                          10:41:1080020103         7000000              0U000007
+                        U000008                  10:42:42002018126        5000000              0U000007                          16:59:34002018726        1000000              0U000007                          17:00:08002018826        1000000              0U000007                          17:07:14002018926        1000000              0U000007                          17:07:51002019026        1000000              0U000007                          17:11:37002019126        1000000              0U000007                          17:15:56002019226        1000000              0U000007                          17:17:07002019326        1000000              0U000007                          17:30:06002019426        1000000              0U000007                          '
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: Success
+                any error:
+                  value:
+                    OutputSchema:
+                      Transactions: '120:47:38002021516       33000000              0U000007                          20:49:24002021626       33000000              0U000007                          20:59:22002021726        5000000              0U000007                          10:29:34002024626        5000000              0U000007                          10:31:48002024723        5000000        5000000U000007                          '
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: Success
+      summary: GetMachineTxn
+      description: "<br/>Format: <span>[have_next_page][List of Trx, separated every\
+        \ 80 character] <br/>Trx Format: [8 digit time][7 digit id][1 digit type][1\
+        \ digit status][15 digit amount][15 digit remain][8 digit teller id][8 digit\
+        \ override id][8 digit deletion time]/[8 digit deletion id]</span> <br/>Trx\
+        \ Status: <br/>ON_PROCESS(1), <br/>LACK_OF_MONEY(2), <br/>WAITING_JAM(3),\
+        \ <br/>WAITING(4), <br/>CANCELED(5), <br/>COMPLETED(6), <br/>UNKNOWN(7)"
+      x-microcks-operation:
+        delay: 0
+        dispatcher: SCRIPT
+        dispatcherRules: "def jsonSlurper = new groovy.json.JsonSlurper();\ndef body\
+          \ = jsonSlurper.parseText(mockRequest.getRequestContent());\nif (body.Hit\
+          \ >= 2) {\n    return \"success\"\n}\nreturn \"all success\" \n"
+  /dummy/identifyById/rest/authenticated-services:
+    post:
+      tags:
+      - mwas
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseMwas'
+              examples:
+                success:
+                  value:
+                    error_schema:
+                      error_code: MWAS-00-000
+                      error_message:
+                        indonesian: OK
+                        english: OK
+                    output_schema:
+                      id_number: "123"
+                      cis:
+                      - cis_customer_number: "0000004741"
+                        customer_name_and_phone:
+                          full_name: IRMA HADINATA UAT
+                NOT FOUND:
+                  value:
+                    error_schema:
+                      error_code: MWAS-50-999
+                      error_message:
+                        indonesian: Gangguan API
+                        english: API Error
+                    output_schema:
+                      error_message:
+                        indonesian: Nomor NIK tidak ditemukan
+                        english: NIK not found
+                      error_code: ESB-99-661
+      summary: /identifyById
+      description: ""
+      x-microcks-operation:
+        delay: 120000
+        dispatcher: SCRIPT
+        dispatcherRules: "return \"success\" \n"
+  /dummy/v1/star-machines/branch/getStarTellerList/rest/app:
+    post:
+      tags:
+      - mwas
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    error_schema:
+                      error_code: MWAS-00-000
+                      error_message:
+                        indonesian: OK
+                        english: OK
+                    output_schema:
+                      success: true
+                      data:
+                      - wsid: 0258135B
+                        type_name: Glory
+                        created_by: U000008
+                        ip_address: 10.69.32.68
+                        host_name: CTPKTSTTes
+                        catridge_limit: 0
+                        last_known_operator_id: U000007
+                        branch_code: "0258"
+                        machine_number: 10
+                        version: 233
+                        print_data: "{\"machineInfo\":{\"ipAddress\":\"10.69.32.68\"\
+                          ,\"retention\":\"1B/6B/2T\"},\"money\":[{\"Amount\":0,\"\
+                          Count\":1,\"Currency\":\"IDR\",\"Denom\":1000},{\"Amount\"\
+                          :0,\"Count\":1,\"Currency\":\"IDR\",\"Denom\":2000},{\"\
+                          Amount\":0,\"Count\":1,\"Currency\":\"IDR\",\"Denom\":5000},{\"\
+                          Amount\":0,\"Count\":1,\"Currency\":\"IDR\",\"Denom\":10000},{\"\
+                          Amount\":3800000,\"Count\":1,\"Currency\":\"IDR\",\"Denom\"\
+                          :20000},{\"Amount\":4950000,\"Count\":1,\"Currency\":\"\
+                          IDR\",\"Denom\":50000},{\"Amount\":9700000,\"Count\":1,\"\
+                          Currency\":\"IDR\",\"Denom\":100000}],\"reportInfo\":{\"\
+                          branchCode\":\"0258\",\"date\":\"2022-06-14\",\"page\":1,\"\
+                          reportNumber\":\"BERTA-0001\",\"reprint\":false,\"time\"\
+                          :\"11:04:12\",\"totalPage\":1,\"userId\":\"U000007\"}}"
+                        last_emptying_time: 2022-06-14T11:04:41.030+0700
+                      pagination:
+                        page: 1
+                        per_page: 10
+                        next: 1
+                        previous: 1
+                        total_item: 1
+                        total_page: 1
+                multi_machine:
+                  value:
+                    error_schema:
+                      error_code: MWAS-00-000
+                      error_message:
+                        indonesian: OK
+                        english: OK
+                    output_schema:
+                      success: true
+                      data:
+                      - wsid: 0258132B
+                        type_name: Glory
+                        created_by: U000008
+                        ip_address: 10.10.10.10
+                        host_name: lalalyeyeye
+                        catridge_limit: 0
+                        last_known_operator_id: U000007
+                        branch_code: "0258"
+                        machine_number: 8
+                        version: 505
+                      - wsid: 0258140B
+                        type_name: Glory
+                        created_by: U000008
+                        ip_address: 10.69.32.68
+                        host_name: CTPKTSTTes
+                        catridge_limit: 0
+                        last_known_operator_id: U000007
+                        branch_code: "0258"
+                        machine_number: 28
+                        version: 286
+                        last_emptying_time: 2022-07-27T17:35:07.755+0700
+                      - wsid: 0258135B
+                        type_name: Glory
+                        created_by: U000008
+                        ip_address: 101.101.101.101
+                        host_name: s
+                        catridge_limit: 50
+                        last_known_operator_id: ""
+                        branch_code: "0258"
+                        machine_number: 54
+                        version: 0
+                        last_emptying_time: 2022-07-26T15:31:41.590+0700
+                      - wsid: 0258101B
+                        type_name: Glory
+                        created_by: U000008
+                        ip_address: 10.69.32.70
+                        host_name: CTPKTSTTes
+                        catridge_limit: 0
+                        last_known_operator_id: U000007
+                        branch_code: "0258"
+                        machine_number: 65
+                        version: 4
+                      - wsid: 0258139B
+                        type_name: Hitachi
+                        created_by: U000008
+                        ip_address: 10.69.32.73
+                        host_name: p090tst19
+                        catridge_limit: 0
+                        last_known_operator_id: ""
+                        branch_code: "0258"
+                        machine_number: 13
+                        version: 24
+                        last_emptying_time: 2022-07-14T16:09:05.533+0700
+                      pagination:
+                        page: 1
+                        per_page: 10
+                        next: 1
+                        previous: 1
+                        total_item: 5
+                        total_page: 1
+      summary: /v1/star-machines/branch
+      x-microcks-operation:
+        delay: 0
+        dispatcher: SCRIPT
+        dispatcherRules: "def jsonSlurper = new groovy.json.JsonSlurper();\ndef body\
+          \ = jsonSlurper.parseText(mockRequest.getRequestContent());\nif (body.request_headers.wsid\
+          \ == \"0258135B\") {\n  return \"multi_machine\"\n}\nreturn \"success\"\
+          \      \n"
+  /starteller/GetMachineInfo:
+    post:
+      tags:
+      - StarTeller
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: Success
+                    OutputSchema:
+                      AppStatus: -1
+                      AppVersion: 1.0.0.6
+                      Balance: 110000000
+                      Hostname: testabletfase2
+                      MachineStatus: 1
+                      MachineType: GLORY
+                      MachineVersion:
+                        APIVersion: 03.00.00
+                        CDMAPversion: 01.00.00.00
+                        CDMFWversion: 01.00.00.00
+                        CDMversion: 01.00.00.00
+                        CIMAPversion: 01.00.00.00
+                        CIMFWversion: 01.00.00.00
+                        CIMversion: 01.00.00.00
+                        DLLVersion: 01.00.01.26
+                        reserved: ""
+                        tcrId: "0000001"
+                empty:
+                  value:
+                    OutputSchema:
+                      AppVersion: 02.00.06.00
+                      MachineStatus: 0
+                      AppStatus: 2
+                      MachineVersion:
+                        APIVersion: 06.00.00
+                        CDMAPversion: F001R
+                        reserved: ""
+                        CDMversion: 01.00.00.00
+                        CIMversion: 01.00.00.00
+                        CIMFWversion: B6261
+                        CIMAPversion: F001R
+                        CDMFWversion: B6261
+                        DLLVersion: 01.12.01.62
+                        tcrId: "0000001"
+                      MachineType: GLORY
+                      Hostname: ctpktsttes
+                      Balance: 0
+                    ErrorSchema:
+                      ErrorCode: 0
+                      ErrorMessage: Success
+      summary: GetMachineInfo
+      x-microcks-operation:
+        delay: 0
+        dispatcher: SCRIPT
+        dispatcherRules: |
+          return "empty"
+  /ektpreader/connect:
+    post:
+      tags:
+      - eKTPReader
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    content_type: application/json
+                    http_status: 200
+                    method: POST
+                    response_data: "{\"success\":0}"
+                    status: 0
+                    url: /ektpreader/connect
+      summary: /connect
+  /ektpreader/readEktpData:
+    post:
+      tags:
+      - eKTPReader
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    content_type: application/json
+                    data:
+                      address: jalan bal bal
+                      blood_type: ""
+                      city: KOTA ADM. JAKARTA tenggara
+                      date_of_birth: 01/12/2001
+                      gender: M
+                      marital_status: Belum Kawin
+                      name: anto anto andi
+                      nationality: ""
+                      nik: "3173040102970009"
+                      occupation: ""
+                      photo_hex_string: ""
+                      place_of_issue: J
+                      place_off_birth: Jakarta
+                      postal_code: "12430"
+                      province: DKI Jakarte
+                      religion: ""
+                      rt: "001"
+                      rw: "003"
+                      signature_photo_hex_string: ""
+                      sub_district: Kebayoran Baru
+                      village: kampung
+                    http_status: 200
+                    method: POST
+                    status: 0
+                    url: /ektpreader/readEktpData
+      summary: /readEktpData
+  /dummy/future-branch/logins/api/card/rest/authenticated-services:
+    post:
+      tags:
+      - mwas
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseMwas'
+              examples:
+                success:
+                  value:
+                    error_schema:
+                      error_code: MWAS-00-000
+                      error_message:
+                        indonesian: OK
+                        english: OK
+                    output_schema:
+                    - account_number: "0080015895"
+                      account_type: "110"
+                      account_type_description: Tahapan
+                      account_ownership: P
+                      customer_details:
+                      - customer_number: "00000025888"
+                        customer_name: RINALDY FACHRIZAL AMINULLAH
+                        relation_type: "0"
+                        owner_code: "901"
+                    - account_number: "00080013264"
+                      account_type: "110"
+                      account_type_description: Tahapan
+                      account_ownership: S
+                      customer_details:
+                      - customer_number: "00000008001"
+                        customer_name: HANDHIKA SUGENG TRESNO JAYA AKBARSSSSSSS
+                        relation_type: "0"
+                        owner_code: "901"
+                    - account_number: "0081212065"
+                      account_type: "110"
+                      account_type_description: Tahapan
+                      account_ownership: S
+                      customer_details:
+                      - customer_number: "00000004741"
+                        customer_name: IRMA HADINATA
+                        relation_type: "0"
+                        owner_code: "901"
+                    - account_number: "1138889440"
+                      account_type: "110"
+                      account_type_description: Tahapan
+                      account_ownership: S
+                      customer_details:
+                      - customer_number: "00000004741"
+                        customer_name: IRMA HADINATA UAT
+                        relation_type: "0"
+                        owner_code: "901"
+                    - account_number: "0451245979"
+                      account_type: "110"
+                      account_type_description: Tahapan
+                      account_ownership: S
+                      customer_details:
+                      - customer_number: "00000004741"
+                        customer_name: ARUM KURNIA
+                        relation_type: "0"
+                        owner_code: "901"
+                    - account_number: "0082212025"
+                      account_type: "110"
+                      account_type_description: Tahapan
+                      account_ownership: S
+                      customer_details:
+                      - customer_number: "00000004741"
+                        customer_name: IRMA HADINATA
+                        relation_type: "0"
+                        owner_code: "901"
+                    - account_number: "2580001648"
+                      account_type: "110"
+                      account_type_description: Tahapan
+                      account_ownership: S
+                      customer_details:
+                      - customer_number: "00000004741"
+                        customer_name: VINCENT UAT
+                        relation_type: "0"
+                        owner_code: "901"
+                    - account_number: "2580001982"
+                      account_type: "110"
+                      account_type_description: Tahapan
+                      account_ownership: S
+                      customer_details:
+                      - customer_number: "00000004741"
+                        customer_name: VINCENT UAT
+                        relation_type: "0"
+                        owner_code: "901"
+                NOT_FOUND:
+                  value:
+                    error_schema:
+                      error_code: MWAS-50-999
+                      error_message:
+                        indonesian: Gangguan API
+                        english: API Error
+                    output_schema:
+                      error_message:
+                        indonesian: Nomor kartu tidak ditemukan
+                        english: Card number cannot be found
+                      error_code: ESB-18-260
+                can not be processed:
+                  value:
+                    ErrorSchema:
+                      ErrorCode: ESB-99-662
+                      ErrorMessage:
+                        Indonesian: Transaksi tidak dapat diproses. Silakan coba beberapa
+                          saat lagi.
+                        English: Transaction can not be processed. Please try again
+                          later.
+      summary: /future-branch/logins/api/card
+      x-microcks-operation:
+        delay: 0
+        dispatcher: SCRIPT
+        dispatcherRules: "def jsonSlurper = new groovy.json.JsonSlurper();\ndef body\
+          \ = jsonSlurper.parseText(mockRequest.getRequestContent());\nif (body.request_body.card_number\
+          \ == \"5260516002178497\") {\n  return \"NOT_FOUND\"\n}\nreturn \"success\"\
+          \      \n"
+  /dummy/eai/deposit-accounts/api/account-status-validations/account-numbers/{account}/rest/authenticated-services:
+    post:
+      tags:
+      - mwas
+      parameters:
+      - examples:
+          NORMAL:
+            value: "0080015895"
+          SEVERITY-2 (REK. LUAR KOTA):
+            value: "0080015892"
+          SEVERITY-3 (PERHATIAN KHUSUS):
+            value: "0080015893"
+          SEVERITY-4 (PST NO CR):
+            value: "0080015894"
+          SEVERITY-2 (DUA TANDA TANGAN):
+            value: "0081212065"
+        name: account
+        description: |-
+          <br/>Severity 2 - 0080015892
+          <br/>Severity 3 - 0080015893
+          <br/>Severity 4 - 0080015894
+          <br/>
+          <br/>Selain diatas Severity 1 "Normal"
+        schema:
+          type: number
+        in: path
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseMwas'
+              examples:
+                NORMAL:
+                  value:
+                    error_schema:
+                      error_code: MWAS-00-000
+                      error_message:
+                        indonesian: OK
+                        english: OK
+                    output_schema:
+                      account_type: "110"
+                      account_name: IVAN FATKHUROHMAN
+                      passbook_indicator: "N"
+                      balance: "10000000"
+                      currency_code: IDR
+                      rejection_flag: "N"
+                      validation_result: []
+                SEVERITY-2 (REK. LUAR KOTA):
+                  value:
+                    error_schema:
+                      error_code: MWAS-00-000
+                      error_message:
+                        indonesian: OK
+                        english: OK
+                    output_schema:
+                      account_type: "110"
+                      account_name: IVAN FATKHUROHMAN
+                      passbook_indicator: "N"
+                      balance: "200000000.05"
+                      currency_code: IDR
+                      rejection_flag: "N"
+                      validation_result:
+                      - 137-REKENING LUARKOTA
+                SEVERITY-3 (PERHATIAN KHUSUS):
+                  value:
+                    error_schema:
+                      error_code: MWAS-00-000
+                      error_message:
+                        indonesian: OK
+                        english: OK
+                    output_schema:
+                      account_type: "110"
+                      account_name: IVAN FATKHUROHMAN
+                      passbook_indicator: "N"
+                      balance: "200000000.05"
+                      currency_code: IDR
+                      rejection_flag: "N"
+                      validation_result:
+                      - 017-PERHATIAN KHUSUS
+                SEVERITY-3 (REK DORMANT):
+                  value:
+                    error_schema:
+                      error_code: MWAS-00-000
+                      error_message:
+                        indonesian: OK
+                        english: OK
+                    output_schema:
+                      account_type: "110"
+                      account_name: IVAN FATKHUROHMAN
+                      passbook_indicator: "N"
+                      balance: "200000000.05"
+                      currency_code: IDR
+                      rejection_flag: "N"
+                      validation_result:
+                      - 003-REK DORMANT
+                SEVERITY-4 (PST NO CR):
+                  value:
+                    error_schema:
+                      error_code: MWAS-00-000
+                      error_message:
+                        indonesian: OK
+                        english: OK
+                    output_schema:
+                      account_type: "300"
+                      account_name: ARUM KURNIA
+                      passbook_indicator: "N"
+                      balance: "200000000.61"
+                      currency_code: IDR
+                      rejection_flag: "N"
+                      validation_result:
+                      - "102-STATUS: PST NO CR"
+                SEVERITY-2 (DUA TANDA TANGAN):
+                  value:
+                    error_schema:
+                      error_code: MWAS-00-000
+                      error_message:
+                        indonesian: OK
+                        english: OK
+                    output_schema:
+                      account_type: "110"
+                      account_name: IVAN FATKHUROHMAN
+                      passbook_indicator: "N"
+                      balance: "200000000.05"
+                      currency_code: IDR
+                      rejection_flag: "N"
+                      validation_result:
+                      - 001-DUA TANDA TANGAN
+      summary: /eai/deposit-accounts/api/account-status-validations/account-numbers
+      description: "<br/>LOST_PB_CHECKS(\"006\", \"BKU/ID/BIL HILANG\", 4),\r\n<br/>UNCOLL_FUNDS(\"\
+        007\", \"DELINQUENT\", 4),\r\n<br/>DECEASED_PARTY(\"010\", \"MENINGGAL DUNIA\"\
+        , 3),\r\n<br/>REFER_SUPV(\"011\", \"KONF SUPERVISOR\", 3),\r\n<br/>TELE_TRANSFER(\"\
+        012\", \"TRANSFER DANA\", 1),    //0 in actual bca doc, but 0 and 1 are both\
+        \ NORMAL\r\n<br/>VERIFY_ADDR(\"013\", \"DATA TDK LENGKAP\",2),\r\n<br/>SPECIAL_REFERRAL(\"\
+        017\", \"PERHATIAN KHUSUS\", 3),\r\n<br/>NO_TRANS_POSTED(\"057\", \"STATUS:PST\
+        \ NO TRN\", 4),\r\n<br/>NO_DEBITS_POSTED(\"058\", \"STATUS:PST NO DB\", 4),\r\
+        \n<br/>NO_MASTER_FOUND(\"066\", \"NOREK TDK TERDFTR\", 4),\r\n<br/>INV_ACCT_NO(\"\
+        083\", \"NO. REK SALAH\", 4),\r\n<br/>CLOSED_ACCT(\"086\", \"REK. SUDAH TUTUP\"\
+        ,4),\r\n<br/>INSIDER_STAT(\"099\", \"STATUS: INSIDER\", 1),     //0 in actual\
+        \ bca doc, but 0 and 1 are both NORMAL\r\n<br/>POST_NO_CREDITS(\"102\", \"\
+        STATUS: PST NO CR\", 4),\r\n<br/>POST_NO_CHECKS(\"103\", \"STATUS: PST NO\
+        \ CK\", 4),\r\n<br/>ID_ESTABLISHED(\"122\", \"DHN\", 3),\r\n<br/>LEGAL_STATUS(\"\
+        123\", \"KEJAKSAAN/PENGAD\", 4),\r\n<br/>IN_SAFE_KEEPING(\"124\", \"DISIMPAN\
+        \ BANK\", 3),\r\n<br/>REFER_TO_SIGNATURE(\"125\", \"LIHAT SPECIMEN\", 3),\r\
+        \n<br/>OBTAIN_ID(\"126\", \"NO ID BELUM ADA\", 2),\r\n<br/>BANKRUPTCY(\"127\"\
+        , \"BANGKRUT\", 3),\r\n<br/>REK_LUARKOTA(\"137\", \"REKENING LUARKOTA\", 2),\r\
+        \n<br/>NON_RESIDENT(\"139\", \"REK NON PENDUDUK\", 3),\r\n<br/>REKENING_WNA(\"\
+        141\", \"WNA PENDUDUK\", 3),\r\n<br/>DOMESTIC_ALLIANCE(\"143\", \"REK DOM\
+        \ ALLIANCE\", 1),\r\n<br/>REKENING_TKI(\"147\", \"REK TKI\", 3),\r\n<br/>KSEI_ACCT(\"\
+        168\", \"REK KSEI\", 4),\r\n<br/>STATUS_B_BAN(\"181\", \"STATUS B-BAN\", 4),\r\
+        \n<br/>DB_OVR_SPV(\"182\", \"DB OVR SUPERVISOR\", 3),\r\n<br/>PERTAMINA_ACCT(\"\
+        198\", \"PERTAMINA ACCOUNT\", 4),\r\n<br/>PERTAMINA_GT_1830(\"199\", \"PERTA\
+        \ BATAS WAKTU\", 4),\r\n<br/>FOREIGN_TXN_MAX(\"202\", \"TXN > 100.000USD\"\
+        , 3),\r\n<br/>STATUS_E(\"209\", \"-OUTSTANDING-\", 3),\r\n<br/>KSEI_RSI(\"\
+        211\", \"SETTLEMENT INVST\", 4),\r\n<br/>POST_NOREV(\"217\", \"POST NO REV/CORR\"\
+        , 4),\r\n<br/>ESCROW_ACCT(\"223\", \"ESCROW ACCOUNT\", 4),\r\n<br/>TAX_AMNESTY(\"\
+        229\", \"REKENING TA\", 3),\r\n<br/>TELLER_LIMIT_EXCEED(\"\",\"MELEBIHI LIMIT\
+        \ TELLER\", 3),\r\n<br/>REK_VOSTRO(\"231\", \"REK. VOSTRO\",4),\r\n<br/>SUB_ACCT(\"\
+        232\", \"SUB ACCOUNT\",4),\r\n<br/>TAMPUNGAN_ACCT(\"238\", \"TAMPUNGAN ACCOUNT\"\
+        ,4);"
+      x-microcks-operation:
+        delay: 0
+        dispatcher: SCRIPT
+        dispatcherRules: "def path = mockRequest.getRequest().getRequestURI();\nif\
+          \ (path.contains(\"0080015892\")) {\n  return \"SEVERITY-2 (REK. LUAR KOTA)\"\
+          \n} else if (path.contains(\"0080015893\")) {\n  return \"SEVERITY-3 (PERHATIAN\
+          \ KHUSUS)\"\n} else if (path.contains(\"0080015893\")) {\n  return \"SEVERITY-3\
+          \ (REK DORMANT)\"\n} else if (path.contains(\"2582488453\")) {\n  return\
+          \ \"SEVERITY-4 (PST NO CR)\"\n} else if (path.contains(\"0080015896\"))\
+          \ {\n  return \"SEVERITY-2 (DUA TANDA TANGAN)\"\n}\nreturn \"NORMAL\" \n"
+  /dummy/sendEmail/rest/app:
+    post:
+      tags:
+      - mwas
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseMwas'
+              examples:
+                success:
+                  value:
+                    error_schema:
+                      error_code: MWAS-00-000
+                      error_message:
+                        indonesian: OK
+                        english: OK
+                    output_schema:
+                      success: true
+                failed:
+                  value:
+                    error_schema:
+                      error_code: MWAS-99-999
+                      error_message:
+                        indonesian: Gagal
+                        english: Failed
+                    output_schema:
+                      success: false
+      x-microcks-operation:
+        delay: 0
+        dispatcher: SCRIPT
+        dispatcherRules: "return \"failed\" \n"
+components:
+  schemas:
+    ResponseMwas:
+      title: Root Type for Response
+      description: ""
+      type: object
+      properties:
+        error_schema:
+          type: object
+          properties:
+            error_code:
+              type: string
+            error_message:
+              type: object
+              properties:
+                indonesian:
+                  type: string
+                english:
+                  type: string
+        output_schema:
+          type: object
+      example:
+        error_schema:
+          error_code: MWAS-00-000
+          error_message:
+            indonesian: OK
+            english: OK
+        output_schema: {}
+tags:
+- name: dev
+  description: only for development
+- name: StarTeller
+  description: |-
+    Error Codes
+    <br/>Untuk ubah kode sesuai jenis error ketika failed
+    <br/>CASH_IN_TIMEOUT(-1),
+    <br/>NO_ERR(0),
+    <br/>INVALID_FIELD(1),
+    <br/>INVALID_HANDLE(2),
+    <br/>PARAMETER_RANGE(3),
+    <br/>BAD_LENGTH(12),
+    <br/>USER_CANCELLED(32),
+    <br/>TIMEOUT(33),
+    <br/>NOT_RESPONDING(87),
+    <br/>COMMS(89),
+    <br/>UNKNOWN_RESPONSE(997),
+    <br/>BAD_PARAMETER(998),
+    <br/>CDM_INVALID_CURRENCY(100),
+    <br/>CDM_INVALID_TELLERID(101),
+    <br/>CDM_CASHUNIT_ERROR(102),
+    <br/>CDM_INVALID_DENOMIMNATION(103),
+    <br/>CDM_INVALID_MIXNUMBER(104),
+    <br/>CDM_NO_CURRENCY_MIX(105),
+    <br/>CDM_NOT_DISPENSABLE(106),
+    <br/>CDM_TOO_MANY_ITEMS(107),
+    <br/>CDM_UNSUPPOSITION(108),
+    <br/>CDM_SAFE_DOOR_OPEN(110),
+    <br/>CDM_SHUTTER_NOT_OPEN(112),
+    <br/>CDM_SHUTTER_CLOSED(114),
+    <br/>CDM_INVALID_CASH_UNIT(115),
+    <br/>CDM_NO_ITEMS(116),
+    <br/>CDM_EXCHANGE_ACTIVE(117),
+    <br/>CDM_NO_EXCHANGE_ACTIVE(118),
+    <br/>CDM_SHUTTER_NOT_CLOSED(119),
+    <br/>CDM_PR_ERROR_NO_ITEMS(120),
+    <br/>CDM_PR_ERROR_ITEMS(121),
+    <br/>CDM_PR_ERROR_UNKNOWN(122),
+    <br/>CDM_ITEMS_TAKEN(123),
+    <br/>CDM_INVALID_MIXTABLE(127),
+    <br/>CDM_OUTPUTPOS_NOT_EMPTY(128),
+    <br/>CDM_INVALID_RETRACT_POSITION(129),
+    <br/>CDM_NOT_RETRACT_AREA(130),
+    <br/>CDM_NO_CASHBOX_PRESENT(133),
+    <br/>CDM_AMOUNT_NOT_IN_MIXTABLE(134),
+    <br/>CDM_ITEMS_NOT_TAKEN(135),
+    <br/>CDM_ITEMS_LEFT(136),
+    <br/>CDM_INVALID_PORT(137),
+    <br/>CDM_POWERSAVE_TOO_SHORT(138),
+    <br/>CDM_POWERSAVE_MEDIA_PRESENT(139),
+    <br/>CDM_ESCROW_FULL(500),
+    <br/>CDM_ESCROW_CONTAIN_NOTES(501),
+    <br/>NEED_RESET(800)
+- name: eKTPReader
+  description: "Error Codes\r\n<br/>Untuk ubah kode sesuai jenis error ketika failed\r\
+    \n<br/>ERR_ERROR = -1\r\n<br/>ERR_TIMEOUT = 3\r\n<br/>ERR_GENERAL_FAILED = 24\r\
+    \n<br/>ERR_NO_DEVICE_FOUND = -1001\r\n<br/>ERR_LISTING_DEVICE_FAIL = -1002\r\n\
+    <br/>ERR_OPEN_DEVICE_FAIL = -1003\r\n<br/>ERR_SETUP_DEVICE_PARAM_FAIL = -1004\r\
+    \n<br/>ERR_SEND_DATA_TIMEOUT = -1005\r\n<br/>ERR_SEND_DATA_FAIL = -1006\r\n<br/>ERR_RECV_DATA_TIMEOUT\
+    \ = -1007\r\n<br/>ERR_RECV_DATA_FAIL = -1008\r\n<br/>ERR_CANNOT_GET_ACK = -1009\r\
+    \n<br/>ERR_LRC_NOT_MATCH = -1010\r\n<br/>ERR_CANNOT_GET_SOH = -1011\r\n<br/>ERR_DVC_NOT_OPEN_YET\
+    \ = -1012\r\n<br/>ERR_COMMAND_IN_PROGRESS = -1013\r\n<br/>ERR_COMMAND_CANCELLED\
+    \ = -1014\r\n<br/>ERR_INVALID_RESPONSE_DATA = -1015\r\n<br/>ERR_INVALID_PARAMETER\
+    \ = -1016\r\n<br/>ERR_INVALID_FILE_TYPE = -1017\r\n<br/>ERR_SAME_APP_VERSION =\
+    \ -1018\r\n<br/>ERR_INVALID_HASH = -1019\r\n<br/>ERR_STATUS_IDLE = -1020\r\n<br/>ERR_READ_CARD_FAILED\
+    \ = -1021"
+- name: pinpad
+  description: ""
+- name: passbook
+  description: ""
+- name: mwas
+  description: ""
